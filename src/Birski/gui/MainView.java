@@ -9,14 +9,14 @@ import static Birski.utils.Strings.*;
 public class MainView extends JPanel {
 
     private static final Font font = new Font("System", Font.PLAIN,20);
-    DrawBoard drawBoard = new DrawBoard();
     static JLabel formula, xIsInRange, yIsInRange;
 
     public MainView(){
         super();
         setBackground(Color.GRAY);
         setLayout(null);
-
+        //testuje wymiary
+        setSize(200, 200);
         formula = new JLabel(FORMULA_STRING, JLabel.LEFT);
         formula.setForeground(Color.BLACK);
         formula.setBounds(10, 30, 100, 20);
@@ -32,8 +32,14 @@ public class MainView extends JPanel {
         yIsInRange.setBounds(10, 90, 100, 20);
         add(yIsInRange);
 
-        drawBoard.setLocation(150, 150);
+        DrawBoard drawBoard = new DrawBoard();
+        drawBoard.setSize(400, 400);
+        drawBoard.setBackground(Color.lightGray);
+        drawBoard.setLocation(150, 0);
         add(drawBoard);
+
+//        drawBoard.setLocation(150, 150);
+//        add(drawBoard);
 
         setVisible(true);
 
