@@ -2,13 +2,48 @@ package Birski.models;
 
 public class Point {
 
-    private float x;
-    private float y;
-    private float z;
+    private double x;
+    private double y;
+    private double z;
+    private short indexX;
+    private short indexY;
 
-    public Point(float x, float y, float z) {
+    public Point(double x, double y, double z, short indexX, short indexY) {
         this.x = x;
         this.y = y;
         this.z = z;
+        this.indexX = indexX;
+        this.indexY = indexY;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
+    public short getIndexX() {
+        return indexX;
+    }
+
+    public short getIndexY() {
+        return indexY;
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                ", indexX=" + indexX +
+                ", indexY=" + indexY +
+                '}';
     }
 }
