@@ -2,6 +2,7 @@ package Birski.models;
 
 import java.util.Random;
 
+import static Birski.utils.Configs.NUMBERS_OF_RECTANGLES;
 import static java.lang.Math.*;
 
 public class Function {
@@ -39,16 +40,16 @@ public class Function {
     }
 
     private Point[][] calculatePoints(){
-        Point [][] points = new Point[100][100];
+        Point [][] points = new Point[NUMBERS_OF_RECTANGLES][NUMBERS_OF_RECTANGLES];
 
         double x = xMin;
         double y = yMin;
 
-        double stepX = (xMax - xMin) / (float) (100 - 1);
-        double stepY = (yMax - yMin) / (float) (100 - 1);
+        double stepX = (xMax - xMin) / (float) (NUMBERS_OF_RECTANGLES - 1);
+        double stepY = (yMax - yMin) / (float) (NUMBERS_OF_RECTANGLES - 1);
 
-        for (short indexX = 0; indexX < 100; indexX++) {
-            for (short indexY = 0; indexY < 100; indexY++) {
+        for (short indexX = 0; indexX < NUMBERS_OF_RECTANGLES; indexX++) {
+            for (short indexY = 0; indexY < NUMBERS_OF_RECTANGLES; indexY++) {
                 points[indexX][indexY] = new Point(x, y, calculateZ(x, y, xPower, yPower), indexY, indexY);
                 y += stepY;
             }
@@ -60,8 +61,8 @@ public class Function {
 
     private double[] getZMaxAndMin(Point[][] points){
         double[] values = new double[2];
-        for (short indexX = 0; indexX < 100; indexX++) {
-            for (short indexY = 0; indexY < 100; indexY++) {
+        for (short indexX = 0; indexX < NUMBERS_OF_RECTANGLES; indexX++) {
+            for (short indexY = 0; indexY < NUMBERS_OF_RECTANGLES; indexY++) {
                 if (points[indexX][indexY].getZ() > values[0]) values[0] = points[indexX][indexY].getZ();
                 if (points[indexX][indexY].getZ() < values[1]) values[1] = points[indexX][indexY].getZ();
             }

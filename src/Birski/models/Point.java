@@ -16,6 +16,11 @@ public class Point {
         this.indexY = indexY;
     }
 
+    public Point(short indexX, short indexY) {
+        this.indexX = indexX;
+        this.indexY = indexY;
+    }
+
     public double getX() {
         return x;
     }

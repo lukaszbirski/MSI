@@ -1,5 +1,6 @@
 package Birski.gui;
 
+import Birski.algorithms.ClimbHillAlgorithm;
 import Birski.models.Function;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ public class MainView extends JPanel implements ActionListener {
 
     private JLabel formula, xIsInRange, yIsInRange, xMax, xMin, x, yMin, yMax, y;
     private DrawBoard drawBoard;
-    private JButton generateButton;
+    private JButton generateButton, climbButton;
 
     public MainView(){
         super();
@@ -19,7 +20,6 @@ public class MainView extends JPanel implements ActionListener {
         setLayout(null);
         setSize(200, 200);
         drawBoard = new DrawBoard();
-        //function = new Function();
         formula = new JLabel("f(x,y) = x^" + drawBoard.getFunction().getxPower() + " * sin(y/x) * y^" + drawBoard.getFunction().getyPower() + " * (1 + sin(x/y", JLabel.LEFT);
         formula.setForeground(Color.BLACK);
         formula.setBounds(10, 30, 250, 20);
@@ -75,6 +75,11 @@ public class MainView extends JPanel implements ActionListener {
         generateButton.addActionListener(this);
         add(generateButton);
 
+        climbButton = new JButton("CLIMB");
+        climbButton.setBounds(10, 335, 180, 30);
+        climbButton.addActionListener(this);
+        add(climbButton);
+
         setVisible(true);
 
     }
@@ -85,6 +90,10 @@ public class MainView extends JPanel implements ActionListener {
 
         if (source == generateButton){
             drawBoard.setFunction(new Function());
+            drawBoard.repaint();
+        }
+        else if (source == climbButton){
+            drawBoard.setClimbHillAlgorithm(new ClimbHillAlgorithm(drawBoard.getFunction().getPoints()));
             drawBoard.repaint();
         }
     }
