@@ -89,12 +89,23 @@ public class MainView extends JPanel implements ActionListener {
         Object source = e.getSource();
 
         if (source == generateButton){
-            drawBoard.setFunction(new Function());
-            drawBoard.repaint();
+            refreshManiViewWhileGenerating();
         }
         else if (source == climbButton){
             drawBoard.setClimbHillAlgorithm(new ClimbHillAlgorithm(drawBoard.getFunction().getPoints()));
             drawBoard.repaint();
         }
+    }
+
+    private void refreshManiViewWhileGenerating(){
+        drawBoard.setFunction(new Function());
+        drawBoard.setClimbHillAlgorithm(null);
+        drawBoard.repaint();
+        xMax.setText(String.valueOf(drawBoard.getFunction().getxMax()));
+        xMin.setText(String.valueOf(drawBoard.getFunction().getxMin()));
+        yMax.setText(String.valueOf(drawBoard.getFunction().getyMax()));
+        yMin.setText(String.valueOf(drawBoard.getFunction().getyMin()));
+        xIsInRange.setText("x is in the range of " + drawBoard.getFunction().getxMin() + ".." + drawBoard.getFunction().getxMax());
+        yIsInRange.setText("y is in the range of " + drawBoard.getFunction().getyMin() + ".." + drawBoard.getFunction().getyMax());
     }
 }

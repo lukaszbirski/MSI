@@ -5,10 +5,10 @@ public class Point {
     private double x;
     private double y;
     private double z;
-    private short indexX;
-    private short indexY;
+    private int indexX;
+    private int indexY;
 
-    public Point(double x, double y, double z, short indexX, short indexY) {
+    public Point(double x, double y, double z, int indexX, int indexY) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -16,7 +16,7 @@ public class Point {
         this.indexY = indexY;
     }
 
-    public Point(short indexX, short indexY) {
+    public Point(int indexX, int indexY) {
         this.indexX = indexX;
         this.indexY = indexY;
     }
@@ -33,11 +33,11 @@ public class Point {
         return z;
     }
 
-    public short getIndexX() {
+    public int getIndexX() {
         return indexX;
     }
 
-    public short getIndexY() {
+    public int getIndexY() {
         return indexY;
     }
 

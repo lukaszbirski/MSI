@@ -29,6 +29,7 @@ public class DrawBoard extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         drawBoardPainting(g);
+        printClimbHillAlgorithm(g);
     }
 
     private void drawBoardPainting(Graphics g){
@@ -42,15 +43,20 @@ public class DrawBoard extends JPanel {
                 g.fillRect(indexX * RECTANGLE_SIZE, DRAW_BOARD_SIZE - ((indexY+1) * RECTANGLE_SIZE), RECTANGLE_SIZE, RECTANGLE_SIZE);
             }
         }
+    }
 
+
+    private void printClimbHillAlgorithm(Graphics g){
         if (climbHillAlgorithm != null){
             Point point = climbHillAlgorithm.getRandomPoint();
+
             g.setColor(COLOR_PROCESSING);
             g.fillRect(point.getIndexX() * RECTANGLE_SIZE,DRAW_BOARD_SIZE - ((point.getIndexY()+1) * RECTANGLE_SIZE),RECTANGLE_SIZE, RECTANGLE_SIZE);
+            paintInit(g);
         }
     }
 
-    public Color intToColor(int colNum){
+    private Color intToColor(int colNum){
         return new Color(colNum, colNum, colNum);
     }
 
@@ -68,5 +74,12 @@ public class DrawBoard extends JPanel {
 
     public void setClimbHillAlgorithm(ClimbHillAlgorithm climbHillAlgorithm) {
         this.climbHillAlgorithm = climbHillAlgorithm;
+    }
+
+    private void paintInit(Graphics g){
+        //climbHillAlgorithm.init();
+        Point point = climbHillAlgorithm.init();
+        //g.setColor(COLOR_PROCESSING);
+        //g.fillRect(point.getIndexX() * RECTANGLE_SIZE,DRAW_BOARD_SIZE - ((point.getIndexY()+1) * RECTANGLE_SIZE),RECTANGLE_SIZE, RECTANGLE_SIZE);
     }
 }

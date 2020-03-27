@@ -7,12 +7,12 @@ import static java.lang.Math.*;
 
 public class Function {
 
-    private short xPower;
-    private short yPower;
-    private short xMin;
-    private short xMax;
-    private short yMin;
-    private short yMax;
+    private int xPower;
+    private int yPower;
+    private int xMin;
+    private int xMax;
+    private int yMin;
+    private int yMax;
     private Point[][] points;
     private double zMin;
     private double zMax;
@@ -70,27 +70,27 @@ public class Function {
         return values;
     }
 
-    public short getxPower() {
+    public int getxPower() {
         return xPower;
     }
 
-    public short getyPower() {
+    public int getyPower() {
         return yPower;
     }
 
-    public short getxMin() {
+    public int getxMin() {
         return xMin;
     }
 
-    public short getxMax() {
+    public int getxMax() {
         return xMax;
     }
 
-    public short getyMin() {
+    public int getyMin() {
         return yMin;
     }
 
-    public short getyMax() {
+    public int getyMax() {
         return yMax;
     }
 
