@@ -41,4 +41,14 @@ public class Point {
         return indexY;
     }
 
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                ", indexX=" + indexX +
+                ", indexY=" + indexY +
+                '}';
+    }
 }

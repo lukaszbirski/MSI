@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class MainView extends JPanel implements ActionListener {
 
-    private JLabel formula, xIsInRange, yIsInRange, xMax, xMin, x, yMin, yMax, y;
+    private JLabel formula, xIsInRange, yIsInRange, xMax, xMin, x, yMin, yMax, y, expectedMaximum;
     private DrawBoard drawBoard;
     private JButton generateButton, climbButton;
 
@@ -34,6 +34,12 @@ public class MainView extends JPanel implements ActionListener {
         yIsInRange.setForeground(Color.BLACK);
         yIsInRange.setBounds(10, 90, 150, 20);
         add(yIsInRange);
+
+        //expectedMaximum = new JLabel("Expected maximum: " + drawBoard.getFunction().getzMax(), JLabel.LEFT);
+        expectedMaximum = new JLabel("Expected maximum: " + String.format("%.5f", (drawBoard.getFunction().getzMax())), JLabel.LEFT);
+        expectedMaximum.setForeground(Color.BLACK);
+        expectedMaximum.setBounds(10, 120, 250, 20);
+        add(expectedMaximum);
 
         xMax = new JLabel(String.valueOf(drawBoard.getFunction().getxMax()), JLabel.RIGHT);
         xMax.setForeground(Color.BLACK);
@@ -107,5 +113,10 @@ public class MainView extends JPanel implements ActionListener {
         yMin.setText(String.valueOf(drawBoard.getFunction().getyMin()));
         xIsInRange.setText("x is in the range of " + drawBoard.getFunction().getxMin() + ".." + drawBoard.getFunction().getxMax());
         yIsInRange.setText("y is in the range of " + drawBoard.getFunction().getyMin() + ".." + drawBoard.getFunction().getyMax());
+        expectedMaximum.setText("Expected maximum: " + String.format("%.5f", (drawBoard.getFunction().getzMax())));
+    }
+
+    public DrawBoard getDrawBoard() {
+        return drawBoard;
     }
 }

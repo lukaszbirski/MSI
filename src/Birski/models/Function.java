@@ -50,7 +50,7 @@ public class Function {
 
         for (short indexX = 0; indexX < NUMBERS_OF_RECTANGLES; indexX++) {
             for (short indexY = 0; indexY < NUMBERS_OF_RECTANGLES; indexY++) {
-                points[indexX][indexY] = new Point(x, y, calculateZ(x, y, xPower, yPower), indexY, indexY);
+                points[indexX][indexY] = new Point(x, y, calculateZ(x, y, xPower, yPower), indexX, indexY);
                 y += stepY;
             }
             y = yMin;

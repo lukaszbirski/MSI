@@ -1,5 +1,6 @@
 package Birski.algorithms;
 
+import Birski.models.Function;
 import Birski.models.Point;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public abstract class Algorithm {
 
     protected Random random;
     protected Point[][] points;
-    protected Point startingPoint;
+    public Point startingPoint;
     protected Point currentPoint;
     protected List<Point> visitedPoints;
 
@@ -20,6 +21,7 @@ public abstract class Algorithm {
         this.random = new Random();
         this.visitedPoints = new ArrayList<>();
         this.points = points;
+        this.startingPoint = getRandomPoint();
     }
 
     public void init(){
@@ -28,15 +30,15 @@ public abstract class Algorithm {
 
     public Point getRandomPoint(){
         int indexX, indexY;
-        indexX = (int) (random.nextInt(NUMBERS_OF_RECTANGLES));
-        indexY = (int) (random.nextInt(NUMBERS_OF_RECTANGLES));
-        Point point = new Point(indexX, indexY);
-    return point;
+        indexX = random.nextInt(NUMBERS_OF_RECTANGLES);
+        indexY = random.nextInt(NUMBERS_OF_RECTANGLES);
+        startingPoint = points[indexX][indexY];
+    return startingPoint;
     }
 
     protected List<Point> getNeighbours(Point current){
         List<Point> neighbours = new ArrayList<>();
-
+    //todo poprawić tak by dodawało do listy tylko te punkty które istnieją
         for (int xOffset = -1; xOffset <= 1; xOffset++) {
             for (int yOffset = -1; yOffset <= 1; yOffset++) {
                 Point neighbour = getNeighbour(current, xOffset, yOffset);
@@ -48,8 +50,13 @@ public abstract class Algorithm {
     }
 
     private Point getNeighbour(Point current, int xOffset, int yOffset){
-        return new Point(current.getIndexX() + xOffset, current.getIndexY() + yOffset);
+        if (current.getIndexX() + xOffset < 0 || current.getIndexX() + xOffset >= 100 || current.getIndexY() + yOffset < 0 || current.getIndexY() + yOffset >= 100){
+            return null;
+        }
+        return points[current.getIndexX() + xOffset][current.getIndexY() + yOffset];
     }
 
-
+    public List<Point> getVisitedPoints() {
+        return visitedPoints;
+    }
 }
