@@ -1,6 +1,7 @@
 package Birski.gui;
 
 import Birski.algorithms.ClimbHillAlgorithm;
+import Birski.algorithms.SimulatedAnnealingAlgorithm;
 import Birski.models.Function;
 import Birski.models.Point;
 
@@ -14,6 +15,7 @@ public class DrawBoard extends JPanel {
 
     private Function function;
     private ClimbHillAlgorithm climbHillAlgorithm;
+    private SimulatedAnnealingAlgorithm simulatedAnnealingAlgorithm;
 
     public DrawBoard() {
         this.function = new Function();
@@ -21,7 +23,16 @@ public class DrawBoard extends JPanel {
     }
 
     public DrawBoard(ClimbHillAlgorithm climbHillAlgorithm) {
+        //if (simulatedAnnealingAlgorithm != null) simulatedAnnealingAlgorithm = null;
         this.climbHillAlgorithm = climbHillAlgorithm;
+
+        repaint();
+    }
+
+    public DrawBoard(SimulatedAnnealingAlgorithm simulatedAnnealingAlgorithm) {
+        //if (climbHillAlgorithm != null) climbHillAlgorithm = null;
+        this.simulatedAnnealingAlgorithm = simulatedAnnealingAlgorithm;
+
         repaint();
     }
 
@@ -30,6 +41,7 @@ public class DrawBoard extends JPanel {
         super.paintComponent(g);
         drawBoardPainting(g);
         printClimbHillAlgorithm(g);
+        printAnnealingAlgorithm(g);
     }
 
     private void drawBoardPainting(Graphics g){
@@ -47,13 +59,21 @@ public class DrawBoard extends JPanel {
 
 
     private void printClimbHillAlgorithm(Graphics g){
+
+//        if (simulatedAnnealingAlgorithm != null) simulatedAnnealingAlgorithm = null;
+
         if (climbHillAlgorithm != null){
             climbHillAlgorithm.init();
-//            Point point = climbHillAlgorithm.getRandomPoint();
-//
-//            g.setColor(COLOR_PROCESSING);
-//            g.fillRect(point.getIndexX() * RECTANGLE_SIZE,DRAW_BOARD_SIZE - ((point.getIndexY()+1) * RECTANGLE_SIZE),RECTANGLE_SIZE, RECTANGLE_SIZE);
-//            paintInit(g);
+
+        }
+    }
+
+    private void printAnnealingAlgorithm(Graphics g){
+
+//        if (climbHillAlgorithm != null) climbHillAlgorithm = null;
+
+        if (simulatedAnnealingAlgorithm != null){
+            simulatedAnnealingAlgorithm.init();
         }
     }
 
@@ -77,8 +97,8 @@ public class DrawBoard extends JPanel {
         this.climbHillAlgorithm = climbHillAlgorithm;
     }
 
-    public ClimbHillAlgorithm getClimbHillAlgorithm() {
-        return climbHillAlgorithm;
+    public void setSimulatedAnnealingAlgorithm(SimulatedAnnealingAlgorithm simulatedAnnealingAlgorithm) {
+        this.simulatedAnnealingAlgorithm = simulatedAnnealingAlgorithm;
     }
 
     private void paintInit(Graphics g){

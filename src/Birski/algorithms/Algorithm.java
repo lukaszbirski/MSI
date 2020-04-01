@@ -38,7 +38,7 @@ public abstract class Algorithm {
 
     protected List<Point> getNeighbours(Point current){
         List<Point> neighbours = new ArrayList<>();
-    //todo poprawić tak by dodawało do listy tylko te punkty które istnieją
+
         for (int xOffset = -1; xOffset <= 1; xOffset++) {
             for (int yOffset = -1; yOffset <= 1; yOffset++) {
                 Point neighbour = getNeighbour(current, xOffset, yOffset);

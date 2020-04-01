@@ -1,6 +1,7 @@
 package Birski.gui;
 
 import Birski.algorithms.ClimbHillAlgorithm;
+import Birski.algorithms.SimulatedAnnealingAlgorithm;
 import Birski.models.Function;
 
 import javax.swing.*;
@@ -12,7 +13,7 @@ public class MainView extends JPanel implements ActionListener {
 
     private JLabel formula, xIsInRange, yIsInRange, xMax, xMin, x, yMin, yMax, y, expectedMaximum;
     private DrawBoard drawBoard;
-    private JButton generateButton, climbButton;
+    private JButton generateButton, climbButton, annealingButton;
 
     public MainView(){
         super();
@@ -35,7 +36,6 @@ public class MainView extends JPanel implements ActionListener {
         yIsInRange.setBounds(10, 90, 150, 20);
         add(yIsInRange);
 
-        //expectedMaximum = new JLabel("Expected maximum: " + drawBoard.getFunction().getzMax(), JLabel.LEFT);
         expectedMaximum = new JLabel("Expected maximum: " + String.format("%.5f", (drawBoard.getFunction().getzMax())), JLabel.LEFT);
         expectedMaximum.setForeground(Color.BLACK);
         expectedMaximum.setBounds(10, 120, 250, 20);
@@ -86,6 +86,11 @@ public class MainView extends JPanel implements ActionListener {
         climbButton.addActionListener(this);
         add(climbButton);
 
+        annealingButton = new JButton("ANNEALING");
+        annealingButton.setBounds(10, 370, 180, 30);
+        annealingButton.addActionListener(this);
+        add(annealingButton);
+
         setVisible(true);
 
     }
@@ -99,6 +104,12 @@ public class MainView extends JPanel implements ActionListener {
         }
         else if (source == climbButton){
             drawBoard.setClimbHillAlgorithm(new ClimbHillAlgorithm(drawBoard.getFunction().getPoints()));
+            drawBoard.setSimulatedAnnealingAlgorithm(null);
+            drawBoard.repaint();
+        }
+        else if (source == annealingButton){
+            drawBoard.setSimulatedAnnealingAlgorithm(new SimulatedAnnealingAlgorithm(drawBoard.getFunction().getPoints()));
+            drawBoard.setClimbHillAlgorithm(null);
             drawBoard.repaint();
         }
     }
@@ -114,9 +125,5 @@ public class MainView extends JPanel implements ActionListener {
         xIsInRange.setText("x is in the range of " + drawBoard.getFunction().getxMin() + ".." + drawBoard.getFunction().getxMax());
         yIsInRange.setText("y is in the range of " + drawBoard.getFunction().getyMin() + ".." + drawBoard.getFunction().getyMax());
         expectedMaximum.setText("Expected maximum: " + String.format("%.5f", (drawBoard.getFunction().getzMax())));
-    }
-
-    public DrawBoard getDrawBoard() {
-        return drawBoard;
     }
 }

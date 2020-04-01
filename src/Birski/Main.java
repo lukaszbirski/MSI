@@ -20,13 +20,6 @@ public class Main  {
         window.setResizable(false);
         window.add(mainView);
         window.setVisible(true);
-        //test();
-
     }
 
-    public static void test(){
-        if (mainView.getDrawBoard().getClimbHillAlgorithm() != null) {
-            System.out.println(mainView.getDrawBoard().getClimbHillAlgorithm().startingPoint.toString());
-        }
-    }
 }
