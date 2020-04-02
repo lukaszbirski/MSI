@@ -1,5 +1,6 @@
 package Birski.algorithms;
 
+import Birski.gui.DrawBoard;
 import Birski.models.Function;
 import Birski.models.Point;
 
@@ -16,11 +17,13 @@ public abstract class Algorithm {
     public Point startingPoint;
     protected Point currentPoint;
     protected List<Point> visitedPoints;
+    //protected DrawBoard drawBoard;
 
     public Algorithm(Point[][] points) {
         this.random = new Random();
         this.visitedPoints = new ArrayList<>();
         this.points = points;
+        //this.drawBoard = drawBoard;
         this.startingPoint = getRandomPoint();
     }
 

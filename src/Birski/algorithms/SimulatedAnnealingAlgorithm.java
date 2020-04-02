@@ -33,13 +33,13 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
                 System.out.println("Wybrano nowy current point: " + nextPoint.toString());
             }else {
                 Point nextRandomPoint = getRandomPoint();
-                if (probability(currentPoint, nextRandomPoint, temp) == random.nextInt(2)) {
+                if (probability(temp, delta) == random.nextInt(1)) {
                     setCurrentPoint(nextRandomPoint);
-                    System.out.println("WYbrano nowy current point z prawdopodobieństwem: " + currentPoint.toString());
+                    System.out.println("Wybrano nowy current point z prawdopodobieństwem: " + currentPoint.toString());
                 }
             }
         }
-        System.out.println("Znalezione ekstrimum: " + maximumPoint.toString());
+        System.out.println("Znaleziono ekstremum: " + maximumPoint.toString());
     }
 
     private Point getRandomNeighbour() {
@@ -52,9 +52,9 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
         if (maximumPoint.getZ() < currentPoint.getZ()) maximumPoint = currentPoint;
     }
 
-    private long probability(Point current, Point next, double temp) {
-        if (next.getZ() > current.getZ()) return 1;
-        else return Math.round(Math.exp(current.getZ() - next.getZ()) / temp);
+    private long probability(double temp, double delta) {
+        if (delta > 0) return 1;
+        else return Math.round(Math.exp(delta) / temp);
     }
 
 

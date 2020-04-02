@@ -23,14 +23,12 @@ public class DrawBoard extends JPanel {
     }
 
     public DrawBoard(ClimbHillAlgorithm climbHillAlgorithm) {
-        //if (simulatedAnnealingAlgorithm != null) simulatedAnnealingAlgorithm = null;
         this.climbHillAlgorithm = climbHillAlgorithm;
 
         repaint();
     }
 
     public DrawBoard(SimulatedAnnealingAlgorithm simulatedAnnealingAlgorithm) {
-        //if (climbHillAlgorithm != null) climbHillAlgorithm = null;
         this.simulatedAnnealingAlgorithm = simulatedAnnealingAlgorithm;
 
         repaint();
@@ -60,8 +58,6 @@ public class DrawBoard extends JPanel {
 
     private void printClimbHillAlgorithm(Graphics g){
 
-//        if (simulatedAnnealingAlgorithm != null) simulatedAnnealingAlgorithm = null;
-
         if (climbHillAlgorithm != null){
             climbHillAlgorithm.init();
 
@@ -69,8 +65,6 @@ public class DrawBoard extends JPanel {
     }
 
     private void printAnnealingAlgorithm(Graphics g){
-
-//        if (climbHillAlgorithm != null) climbHillAlgorithm = null;
 
         if (simulatedAnnealingAlgorithm != null){
             simulatedAnnealingAlgorithm.init();
