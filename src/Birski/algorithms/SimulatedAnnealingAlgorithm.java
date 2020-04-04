@@ -40,6 +40,7 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
             }
         }
         System.out.println("Znalezione ekstrimum: " + maximumPoint.toString());
+        System.out.println(" ");
     }
 
     private Point getRandomNeighbour() {

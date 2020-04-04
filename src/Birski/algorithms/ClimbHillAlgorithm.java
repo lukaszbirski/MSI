@@ -1,5 +1,6 @@
 package Birski.algorithms;
 
+import Birski.gui.DrawBoard;
 import Birski.models.Function;
 import Birski.models.Point;
 
@@ -13,7 +14,6 @@ public class ClimbHillAlgorithm extends Algorithm {
     public ClimbHillAlgorithm(Point[][] points) {
         super(points);
     }
-
 
     @Override
     public void init() {
@@ -63,6 +63,8 @@ public class ClimbHillAlgorithm extends Algorithm {
             System.out.println("");
             i++;
         }
+
+
     }
 
     private Point getTheBestNeighbour(List<Point> neighbours){
