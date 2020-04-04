@@ -9,11 +9,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainView extends JPanel implements ActionListener {
+import static Birski.utils.Strings.SOFTWARE_TITLE;
+
+public class MainView extends JPanel implements ActionListener, Runnable {
 
     private JLabel formula, xIsInRange, yIsInRange, xMax, xMin, x, yMin, yMax, y, expectedMaximum;
-    private DrawBoard drawBoard;
+    static DrawBoard drawBoard;
     private JButton generateButton, climbButton, annealingButton;
+
+    static JFrame window = new JFrame(SOFTWARE_TITLE);
+    static MainView mainView = new MainView();
+    static Thread thread = new Thread(mainView);
+
+    short op = 500;
 
     public MainView(){
         super();
@@ -71,10 +79,10 @@ public class MainView extends JPanel implements ActionListener {
         y.setBounds(500, 520, 20, 20);
         add(y);
 
-        drawBoard.setSize(500, 500);
-        drawBoard.setBackground(Color.lightGray);
-        drawBoard.setLocation(250, 20);
-        add(drawBoard);
+//        drawBoard.setSize(500, 500);
+//        drawBoard.setBackground(Color.lightGray);
+//        drawBoard.setLocation(250, 20);
+//        add(drawBoard);
 
         generateButton = new JButton("GENERATE");
         generateButton.setBounds(10, 300, 180, 30);
@@ -94,6 +102,27 @@ public class MainView extends JPanel implements ActionListener {
         setVisible(true);
 
     }
+
+    public static void main(String[] args) {
+
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setSize(790, 580);
+        window.setLocationRelativeTo(null);
+        window.setResizable(false);
+
+        window.add(mainView);
+        window.setVisible(true);
+
+        drawBoard.setSize(500, 500);
+        drawBoard.setBackground(Color.lightGray);
+        drawBoard.setLocation(250, 20);
+        mainView.add(drawBoard);
+
+        thread.start();
+    }
+
+
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -125,5 +154,23 @@ public class MainView extends JPanel implements ActionListener {
         xIsInRange.setText("x is in the range of " + drawBoard.getFunction().getxMin() + ".." + drawBoard.getFunction().getxMax());
         yIsInRange.setText("y is in the range of " + drawBoard.getFunction().getyMin() + ".." + drawBoard.getFunction().getyMax());
         expectedMaximum.setText("Expected maximum: " + String.format("%.5f", (drawBoard.getFunction().getzMax())));
+    }
+
+    @Override
+    public void run() {
+
+        long wait, startCycle, timeCycle;
+
+        while (true){
+            startCycle = System.nanoTime();
+            drawBoard.repaint();
+            timeCycle = startCycle - System.nanoTime();
+            wait = op - timeCycle/1000000;
+            if (wait <=0 )wait = 3;
+            try {thread.sleep(wait);} catch (InterruptedException e) {e.printStackTrace();}
+            System.out.println(op + " > " + wait);
+            //drawBoard.
+        }
+
     }
 }

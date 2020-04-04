@@ -24,7 +24,7 @@ public abstract class Algorithm {
         this.startingPoint = getRandomPoint();
     }
 
-    public void init(){
+    public void init() {
 
     }
 

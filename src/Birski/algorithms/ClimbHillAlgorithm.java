@@ -30,6 +30,7 @@ public class ClimbHillAlgorithm extends Algorithm {
         currentPoint = startingPoint;
         //System.out.println("TO jest current point: " + currentPoint.toString());
         System.out.println(" ");
+        //wait(1000);
 
         /////////////////////////////////////////tu będzie zaczynać się pętla/////////////////////////////////////
         int i = 1;
@@ -62,6 +63,7 @@ public class ClimbHillAlgorithm extends Algorithm {
             System.out.println("KONIEC PĘTLI: " + i);
             System.out.println("");
             i++;
+            //wait(1000);
         }
 
 

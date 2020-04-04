@@ -5,9 +5,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/algorithms/ClimbHillAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/algorithms/ClimbHillAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/gui/DrawBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/gui/DrawBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Birski/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Birski/algorithms/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/algorithms/Algorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Birski/algorithms/ClimbHillAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/algorithms/ClimbHillAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Birski/algorithms/SimulatedAnnealingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/algorithms/SimulatedAnnealingAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Birski/gui/DrawBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/gui/DrawBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Birski/gui/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/gui/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +52,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainView">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Birski.Main" />
       <module name="BirskiS1App" />
@@ -60,8 +63,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Birski.gui.MainView" />
+      <module name="BirskiS1App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Birski.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainView" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -101,7 +118,7 @@
       <workItem from="1585499150557" duration="4581000" />
       <workItem from="1585591541360" duration="465000" />
       <workItem from="1585761875723" duration="4808000" />
-      <workItem from="1585989429394" duration="719000" />
+      <workItem from="1585989429394" duration="9958000" />
     </task>
     <servers />
   </component>
@@ -126,10 +143,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2472" y="177" key="#Auto_Import/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585162546351" />
-    <state x="823" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1585503449188">
+    <state x="823" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1585995239220">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="823" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585503449188" />
+    <state x="823" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585995239220" />
     <state x="559" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584909778382">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -144,46 +161,46 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585932074946" />
-    <state width="1877" height="237" key="GridCell.Tab.0.bottom" timestamp="1585943456050">
+    <state width="1877" height="377" key="GridCell.Tab.0.bottom" timestamp="1586003342993">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="84" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947847" />
-    <state width="1877" height="237" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585943456050" />
-    <state width="1877" height="237" key="GridCell.Tab.0.center" timestamp="1585943456050">
+    <state width="1877" height="377" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586003342993" />
+    <state width="1877" height="377" key="GridCell.Tab.0.center" timestamp="1586003342992">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="84" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947846" />
-    <state width="1877" height="237" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585943456050" />
-    <state width="1877" height="237" key="GridCell.Tab.0.left" timestamp="1585943456050">
+    <state width="1877" height="377" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586003342992" />
+    <state width="1877" height="377" key="GridCell.Tab.0.left" timestamp="1586003342992">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="84" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947846" />
-    <state width="1877" height="237" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585943456050" />
-    <state width="1877" height="237" key="GridCell.Tab.0.right" timestamp="1585943456050">
+    <state width="1877" height="377" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586003342992" />
+    <state width="1877" height="377" key="GridCell.Tab.0.right" timestamp="1586003342993">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="84" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947847" />
-    <state width="1877" height="237" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585943456050" />
-    <state width="1877" height="237" key="GridCell.Tab.1.bottom" timestamp="1585943456051">
+    <state width="1877" height="377" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586003342993" />
+    <state width="1877" height="377" key="GridCell.Tab.1.bottom" timestamp="1586003342271">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="84" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947422" />
-    <state width="1877" height="237" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585943456051" />
-    <state width="1877" height="237" key="GridCell.Tab.1.center" timestamp="1585943456051">
+    <state width="1877" height="377" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586003342271" />
+    <state width="1877" height="377" key="GridCell.Tab.1.center" timestamp="1586003342270">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="84" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947422" />
-    <state width="1877" height="237" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585943456051" />
-    <state width="1877" height="237" key="GridCell.Tab.1.left" timestamp="1585943456051">
+    <state width="1877" height="377" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586003342270" />
+    <state width="1877" height="377" key="GridCell.Tab.1.left" timestamp="1586003342267">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="84" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947422" />
-    <state width="1877" height="237" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585943456051" />
-    <state width="1877" height="237" key="GridCell.Tab.1.right" timestamp="1585943456051">
+    <state width="1877" height="377" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586003342267" />
+    <state width="1877" height="377" key="GridCell.Tab.1.right" timestamp="1586003342271">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="84" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947422" />
-    <state width="1877" height="237" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585943456051" />
+    <state width="1877" height="377" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586003342271" />
     <state x="2381" y="161" key="SettingsEditor" timestamp="1584805956757">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

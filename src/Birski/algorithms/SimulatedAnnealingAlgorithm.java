@@ -16,11 +16,12 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
     }
 
     @Override
-    public void init(){
+    public void init() {
         super.init();
         currentPoint = startingPoint;
         System.out.println("Starting point: " + startingPoint.toString());
         maximumPoint = currentPoint;
+        visitedPoints.add(currentPoint);
         System.out.println("Current maximum point: " + maximumPoint.toString());
 
         for (double temp = INITIAL_TEMP; temp > 0; temp-= TEMP_DECREASE) {
@@ -38,6 +39,7 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
                     System.out.println("WYbrano nowy current point z prawdopodobieństwem: " + currentPoint.toString());
                 }
             }
+            visitedPoints.add(currentPoint);
         }
         System.out.println("Znalezione ekstrimum: " + maximumPoint.toString());
         System.out.println(" ");

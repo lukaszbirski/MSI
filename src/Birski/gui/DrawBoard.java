@@ -21,19 +21,6 @@ public class DrawBoard extends JPanel {
 
     public DrawBoard() {
         this.function = new Function();
-        repaint();
-    }
-
-    public DrawBoard(ClimbHillAlgorithm climbHillAlgorithm) {
-        this.climbHillAlgorithm = climbHillAlgorithm;
-
-        repaint();
-    }
-
-    public DrawBoard(SimulatedAnnealingAlgorithm simulatedAnnealingAlgorithm) {
-        this.simulatedAnnealingAlgorithm = simulatedAnnealingAlgorithm;
-
-        repaint();
     }
 
     @Override
@@ -41,8 +28,8 @@ public class DrawBoard extends JPanel {
         super.paintComponent(g);
         graphic = (Graphics2D) g;
         drawBoardPainting();
-        printClimbHillAlgorithm();
-        printAnnealingAlgorithm();
+        paintClimbHillAlgorithm();
+        paintSimulatedAnnealingAlgorithm();
     }
 
     private void drawBoardPainting(){
@@ -55,21 +42,6 @@ public class DrawBoard extends JPanel {
                 graphic.setColor(intToColor((int) corrected));
                 graphic.fillRect(indexX * RECTANGLE_SIZE, DRAW_BOARD_SIZE - ((indexY+1) * RECTANGLE_SIZE), RECTANGLE_SIZE, RECTANGLE_SIZE);
             }
-        }
-    }
-
-
-    private void printClimbHillAlgorithm(){
-
-        if (climbHillAlgorithm != null){
-            climbHillAlgorithm.init();
-        }
-    }
-
-    private void printAnnealingAlgorithm(){
-
-        if (simulatedAnnealingAlgorithm != null){
-            simulatedAnnealingAlgorithm.init();
         }
     }
 
@@ -91,20 +63,34 @@ public class DrawBoard extends JPanel {
 
     public void setClimbHillAlgorithm(ClimbHillAlgorithm climbHillAlgorithm) {
         this.climbHillAlgorithm = climbHillAlgorithm;
+        if (climbHillAlgorithm != null) this.climbHillAlgorithm.init();
+
     }
 
     public void setSimulatedAnnealingAlgorithm(SimulatedAnnealingAlgorithm simulatedAnnealingAlgorithm) {
         this.simulatedAnnealingAlgorithm = simulatedAnnealingAlgorithm;
+        if (simulatedAnnealingAlgorithm != null) this.simulatedAnnealingAlgorithm.init();
     }
 
-    public static void paintAlgorithm(){
-//        List<Point> visitedPoints = simulatedAnnealingAlgorithm.getVisitedPoints();
-//        graphic.setColor(COLOR_PROCESSING);
-//        for (Point point : visitedPoints){
-//            graphic.fillRect(point.getIndexX() * RECTANGLE_SIZE,DRAW_BOARD_SIZE - ((point.getIndexY()+1) * RECTANGLE_SIZE),RECTANGLE_SIZE, RECTANGLE_SIZE);
-//        }
-//        repaint();
-
-
+    private void paintClimbHillAlgorithm(){
+        if (this.climbHillAlgorithm != null){
+            List<Point> visited = climbHillAlgorithm.getVisitedPoints();
+            graphic.setColor(COLOR_PROCESSING);
+            for (Point point : visited){
+            graphic.fillRect(point.getIndexX() * RECTANGLE_SIZE,DRAW_BOARD_SIZE - ((point.getIndexY()+1) * RECTANGLE_SIZE),RECTANGLE_SIZE, RECTANGLE_SIZE);
+            }
+        }
     }
+
+    private void paintSimulatedAnnealingAlgorithm(){
+        if (this.simulatedAnnealingAlgorithm != null){
+            List<Point> visited = simulatedAnnealingAlgorithm.getVisitedPoints();
+            graphic.setColor(COLOR_PROCESSING);
+            for (Point point : visited){
+                graphic.fillRect(point.getIndexX() * RECTANGLE_SIZE,DRAW_BOARD_SIZE - ((point.getIndexY()+1) * RECTANGLE_SIZE),RECTANGLE_SIZE, RECTANGLE_SIZE);
+            }
+        }
+    }
+
+
 }
