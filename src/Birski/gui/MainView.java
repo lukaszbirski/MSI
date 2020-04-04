@@ -9,11 +9,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainView extends JPanel implements ActionListener {
+import static Birski.utils.Strings.SOFTWARE_TITLE;
+
+public class MainView extends JPanel implements ActionListener, Runnable {
 
     private JLabel formula, xIsInRange, yIsInRange, xMax, xMin, x, yMin, yMax, y, expectedMaximum;
-    private DrawBoard drawBoard;
+    static DrawBoard drawBoard;
     private JButton generateButton, climbButton, annealingButton;
+
+    static JFrame window = new JFrame(SOFTWARE_TITLE);
+    static MainView mainView = new MainView();
+    static Thread thread = new Thread(mainView);
+
+    short op = 500;
 
     public MainView(){
         super();
@@ -95,6 +103,22 @@ public class MainView extends JPanel implements ActionListener {
 
     }
 
+    public static void main(String[] args) {
+
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setSize(790, 580);
+        window.setLocationRelativeTo(null);
+        window.setResizable(false);
+
+        window.add(mainView);
+        window.setVisible(true);
+
+        thread.start();
+    }
+
+
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
@@ -105,18 +129,17 @@ public class MainView extends JPanel implements ActionListener {
         else if (source == climbButton){
             drawBoard.setClimbHillAlgorithm(new ClimbHillAlgorithm(drawBoard.getFunction().getPoints()));
             drawBoard.setSimulatedAnnealingAlgorithm(null);
-            drawBoard.repaint();
         }
         else if (source == annealingButton){
             drawBoard.setSimulatedAnnealingAlgorithm(new SimulatedAnnealingAlgorithm(drawBoard.getFunction().getPoints()));
             drawBoard.setClimbHillAlgorithm(null);
-            drawBoard.repaint();
         }
     }
 
     private void refreshManiViewWhileGenerating(){
         drawBoard.setFunction(new Function());
         drawBoard.setClimbHillAlgorithm(null);
+        drawBoard.setSimulatedAnnealingAlgorithm(null);
         drawBoard.repaint();
         xMax.setText(String.valueOf(drawBoard.getFunction().getxMax()));
         xMin.setText(String.valueOf(drawBoard.getFunction().getxMin()));
@@ -125,5 +148,22 @@ public class MainView extends JPanel implements ActionListener {
         xIsInRange.setText("x is in the range of " + drawBoard.getFunction().getxMin() + ".." + drawBoard.getFunction().getxMax());
         yIsInRange.setText("y is in the range of " + drawBoard.getFunction().getyMin() + ".." + drawBoard.getFunction().getyMax());
         expectedMaximum.setText("Expected maximum: " + String.format("%.5f", (drawBoard.getFunction().getzMax())));
+    }
+
+    @Override
+    public void run() {
+
+        long wait, startCycle, timeCycle;
+
+        while (true){
+            startCycle = System.nanoTime();
+            drawBoard.repaint();
+            timeCycle = startCycle - System.nanoTime();
+            wait = op - timeCycle/1000000;
+            if (wait <=0 )wait = 3;
+            try {thread.sleep(wait);} catch (InterruptedException e) {e.printStackTrace();}
+            System.out.println(op + " > " + wait);
+        }
+
     }
 }

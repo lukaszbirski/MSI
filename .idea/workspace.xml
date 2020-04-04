@@ -3,9 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="f0be13f8-d7df-4b01-ab17-aeaa90850fe9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/Birski/algorithms/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/algorithms/Algorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Birski/algorithms/SimulatedAnnealingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/algorithms/SimulatedAnnealingAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Birski/gui/DrawBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/gui/DrawBoard.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/algorithms/Algorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/algorithms/Algorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/algorithms/ClimbHillAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/algorithms/ClimbHillAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/algorithms/SimulatedAnnealingAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/algorithms/SimulatedAnnealingAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/gui/DrawBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/gui/DrawBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/gui/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/gui/MainView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/models/Function.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/models/Function.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/models/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/models/Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/utils/Configs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BirskiS1App/Birski/utils/Configs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Birski/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Birski/algorithms/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/algorithms/Algorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Birski/algorithms/ClimbHillAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/algorithms/ClimbHillAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Birski/algorithms/SimulatedAnnealingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/algorithms/SimulatedAnnealingAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Birski/gui/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/gui/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Birski/models/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/models/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Birski/utils/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Birski/utils/Configs.java" afterDir="false" />
+>>>>>>> workbranch
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +38,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZRcmt6k0rs00g90nKemSyLydr9" />
@@ -42,7 +65,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainView">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Birski.Main" />
       <module name="BirskiS1App" />
@@ -53,8 +76,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Birski.gui.MainView" />
+      <module name="BirskiS1App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Birski.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainView" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -101,11 +139,30 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ogolne poprawki i usuniecie soutow" />
+    <option name="LAST_COMMIT_MESSAGE" value="ogolne poprawki i usuniecie soutow" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="177" key="#Auto_Import" timestamp="1585162546351">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2472" y="177" key="#Auto_Import/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585162546351" />
+    <state x="2472" y="177" key="#Notifications" timestamp="1586016830300">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="177" key="#Notifications/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016830300" />
     <state x="823" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1585503449188">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -120,6 +177,7 @@
     </state>
     <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909699714" />
     <state x="2544" y="199" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585162277820" />
+<<<<<<< HEAD
     <state width="1877" height="337" key="GridCell.Tab.0.bottom" timestamp="1585850799390">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -160,10 +218,63 @@
     </state>
     <state width="1493" height="84" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947422" />
     <state width="1877" height="337" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585850798773" />
+=======
+    <state x="2505" y="113" key="CommitChangelistDialog2" timestamp="1586016812458">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2505" y="113" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016812458" />
+    <state width="1877" height="377" key="GridCell.Tab.0.bottom" timestamp="1586016838702">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="84" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947847" />
+    <state width="1877" height="377" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016838702" />
+    <state width="1877" height="377" key="GridCell.Tab.0.center" timestamp="1586016838702">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="84" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947846" />
+    <state width="1877" height="377" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016838702" />
+    <state width="1877" height="377" key="GridCell.Tab.0.left" timestamp="1586016838701">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="84" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947846" />
+    <state width="1877" height="377" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016838701" />
+    <state width="1877" height="377" key="GridCell.Tab.0.right" timestamp="1586016838702">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="84" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947847" />
+    <state width="1877" height="377" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016838702" />
+    <state width="1877" height="377" key="GridCell.Tab.1.bottom" timestamp="1586016838703">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="84" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947422" />
+    <state width="1877" height="377" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016838703" />
+    <state width="1877" height="377" key="GridCell.Tab.1.center" timestamp="1586016838703">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="84" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947422" />
+    <state width="1877" height="377" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016838703" />
+    <state width="1877" height="377" key="GridCell.Tab.1.left" timestamp="1586016838702">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="84" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947422" />
+    <state width="1877" height="377" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016838702" />
+    <state width="1877" height="377" key="GridCell.Tab.1.right" timestamp="1586016838703">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="84" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584909947422" />
+    <state width="1877" height="377" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016838703" />
+>>>>>>> workbranch
     <state x="2381" y="161" key="SettingsEditor" timestamp="1584805956757">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2381" y="161" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584805956757" />
+<<<<<<< HEAD
+=======
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2" timestamp="1586016919759">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586016919759" />
+>>>>>>> workbranch
     <state x="2576" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1585846057157">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
