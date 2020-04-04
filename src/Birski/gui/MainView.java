@@ -79,10 +79,10 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         y.setBounds(500, 520, 20, 20);
         add(y);
 
-//        drawBoard.setSize(500, 500);
-//        drawBoard.setBackground(Color.lightGray);
-//        drawBoard.setLocation(250, 20);
-//        add(drawBoard);
+        drawBoard.setSize(500, 500);
+        drawBoard.setBackground(Color.lightGray);
+        drawBoard.setLocation(250, 20);
+        add(drawBoard);
 
         generateButton = new JButton("GENERATE");
         generateButton.setBounds(10, 300, 180, 30);
@@ -113,11 +113,6 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         window.add(mainView);
         window.setVisible(true);
 
-        drawBoard.setSize(500, 500);
-        drawBoard.setBackground(Color.lightGray);
-        drawBoard.setLocation(250, 20);
-        mainView.add(drawBoard);
-
         thread.start();
     }
 
@@ -134,18 +129,17 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         else if (source == climbButton){
             drawBoard.setClimbHillAlgorithm(new ClimbHillAlgorithm(drawBoard.getFunction().getPoints()));
             drawBoard.setSimulatedAnnealingAlgorithm(null);
-            drawBoard.repaint();
         }
         else if (source == annealingButton){
             drawBoard.setSimulatedAnnealingAlgorithm(new SimulatedAnnealingAlgorithm(drawBoard.getFunction().getPoints()));
             drawBoard.setClimbHillAlgorithm(null);
-            drawBoard.repaint();
         }
     }
 
     private void refreshManiViewWhileGenerating(){
         drawBoard.setFunction(new Function());
         drawBoard.setClimbHillAlgorithm(null);
+        drawBoard.setSimulatedAnnealingAlgorithm(null);
         drawBoard.repaint();
         xMax.setText(String.valueOf(drawBoard.getFunction().getxMax()));
         xMin.setText(String.valueOf(drawBoard.getFunction().getxMin()));
@@ -169,7 +163,6 @@ public class MainView extends JPanel implements ActionListener, Runnable {
             if (wait <=0 )wait = 3;
             try {thread.sleep(wait);} catch (InterruptedException e) {e.printStackTrace();}
             System.out.println(op + " > " + wait);
-            //drawBoard.
         }
 
     }

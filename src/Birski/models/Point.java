@@ -16,19 +16,6 @@ public class Point {
         this.indexY = indexY;
     }
 
-    public Point(int indexX, int indexY) {
-        this.indexX = indexX;
-        this.indexY = indexY;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
     public double getZ() {
         return z;
     }
@@ -39,16 +26,5 @@ public class Point {
 
     public int getIndexY() {
         return indexY;
-    }
-
-    @Override
-    public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                ", z=" + z +
-                ", indexX=" + indexX +
-                ", indexY=" + indexY +
-                '}';
     }
 }

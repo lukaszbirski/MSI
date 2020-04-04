@@ -50,7 +50,7 @@ public abstract class Algorithm {
     }
 
     private Point getNeighbour(Point current, int xOffset, int yOffset){
-        if (current.getIndexX() + xOffset < 0 || current.getIndexX() + xOffset >= 100 || current.getIndexY() + yOffset < 0 || current.getIndexY() + yOffset >= 100){
+        if (current.getIndexX() + xOffset < 0 || current.getIndexX() + xOffset >= NUMBERS_OF_RECTANGLES || current.getIndexY() + yOffset < 0 || current.getIndexY() + yOffset >= NUMBERS_OF_RECTANGLES){
             return null;
         }
         return points[current.getIndexX() + xOffset][current.getIndexY() + yOffset];
