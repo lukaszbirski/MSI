@@ -14,8 +14,8 @@ public class Function {
     private int yMin;
     private int yMax;
     private Point[][] points;
-    private double zMin;
-    private double zMax;
+    private Point zMin;
+    private Point zMax;
 
     public Function() {
         Random random = new Random();
@@ -59,12 +59,13 @@ public class Function {
         return points;
     }
 
-    private double[] getZMaxAndMin(Point[][] points){
-        double[] values = new double[2];
+    private Point[] getZMaxAndMin(Point[][] points){
+        Point[] values = new Point[2];
+        values[0] = values[1] = points[0][0];
         for (short indexX = 0; indexX < NUMBERS_OF_RECTANGLES; indexX++) {
             for (short indexY = 0; indexY < NUMBERS_OF_RECTANGLES; indexY++) {
-                if (points[indexX][indexY].getZ() > values[0]) values[0] = points[indexX][indexY].getZ();
-                if (points[indexX][indexY].getZ() < values[1]) values[1] = points[indexX][indexY].getZ();
+                if (points[indexX][indexY].getZ() > values[0].getZ()) values[0] = points[indexX][indexY];
+                if (points[indexX][indexY].getZ() < values[1].getZ()) values[1] = points[indexX][indexY];
             }
         }
         return values;
@@ -98,11 +99,11 @@ public class Function {
         return points;
     }
 
-    public double getzMin() {
+    public Point getzMin() {
         return zMin;
     }
 
-    public double getzMax() {
+    public Point getzMax() {
         return zMax;
     }
 }

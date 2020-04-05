@@ -1,14 +1,12 @@
 package Birski.algorithms;
 
-import Birski.gui.DrawBoard;
-import Birski.models.Function;
 import Birski.models.Point;
 
 import java.util.List;
 
 public class ClimbHillAlgorithm extends Algorithm {
 
-    private double extremum;
+    private Point extremum;
     public List<Point> neighbours;
 
     public ClimbHillAlgorithm(Point[][] points) {
@@ -19,29 +17,32 @@ public class ClimbHillAlgorithm extends Algorithm {
     public void init() {
         super.init();
 
-        currentPoint = startingPoint;
+        for (int i = 0; i < 10; i++) {
 
-        while(true)
-        {
-            visitedPoints.add(currentPoint);
+            startingPoints.add(getRandomPoint());
+            currentPoint = startingPoints.get(i);
 
-            neighbours = getNeighbours(currentPoint);
+            while(true)
+            {
+                visitedPoints.add(currentPoint);
 
-            if (currentPoint == getTheBestNeighbour(neighbours)){
-                break;
+                neighbours = getNeighbours(currentPoint);
+
+                if (currentPoint == getTheBestNeighbour(neighbours)){
+                    maxPoints.add(extremum);
+                    break;
+                }
             }
         }
     }
 
     private Point getTheBestNeighbour(List<Point> neighbours){
-
         for (Point point : neighbours){
             if (point.getZ() > currentPoint.getZ()){
-                extremum = point.getZ();
+                extremum = point;
                 currentPoint = point;
             }
         }
-
         return currentPoint;
     }
 

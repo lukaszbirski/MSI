@@ -18,7 +18,8 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
     @Override
     public void init() {
         super.init();
-        currentPoint = startingPoint;
+        startingPoints.add(getRandomPoint());
+        currentPoint = startingPoints.get(0);
         maximumPoint = currentPoint;
         visitedPoints.add(currentPoint);
 
@@ -37,6 +38,8 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
             }
             visitedPoints.add(currentPoint);
         }
+        status.setExtremum(maximumPoint);
+        maxPoints.add(maximumPoint);
     }
 
     private Point getRandomNeighbour() {

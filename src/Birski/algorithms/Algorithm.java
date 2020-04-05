@@ -1,6 +1,7 @@
 package Birski.algorithms;
 
 import Birski.models.Point;
+import Birski.models.Status;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +13,19 @@ public abstract class Algorithm {
 
     protected Random random;
     protected Point[][] points;
-    public Point startingPoint;
+    protected List<Point> startingPoints;
     protected Point currentPoint;
     protected List<Point> visitedPoints;
+    protected List<Point> maxPoints;
+    protected Status status;
 
     public Algorithm(Point[][] points) {
         this.random = new Random();
         this.visitedPoints = new ArrayList<>();
+        this.startingPoints = new ArrayList<>();
+        this.maxPoints = new ArrayList<>();
         this.points = points;
-        this.startingPoint = getRandomPoint();
+        this.status = new Status();
     }
 
     public void init() {}
@@ -29,7 +34,7 @@ public abstract class Algorithm {
         int indexX, indexY;
         indexX = random.nextInt(NUMBERS_OF_RECTANGLES);
         indexY = random.nextInt(NUMBERS_OF_RECTANGLES);
-        startingPoint = points[indexX][indexY];
+        Point startingPoint = points[indexX][indexY];
     return startingPoint;
     }
 
@@ -55,5 +60,23 @@ public abstract class Algorithm {
 
     public List<Point> getVisitedPoints() {
         return visitedPoints;
+    }
+
+    public List<Point> getStartingPoints() {
+        return startingPoints;
+    }
+
+    public List<Point> getMaxPoints() {
+        return maxPoints;
+    }
+
+    public Point getFoundMaximum() {
+        Point max = maxPoints.get(0);
+
+        for (Point point : maxPoints){
+            if (point.getZ() > max.getZ()) max = point;
+        }
+
+        return max;
     }
 }

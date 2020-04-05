@@ -33,11 +33,11 @@ public class DrawBoard extends JPanel {
     }
 
     private void drawBoardPainting(){
-        double difference = function.getzMax() - function.getzMin();
+        double difference = function.getzMax().getZ() - function.getzMin().getZ();
 
         for (int indexX = 0; indexX < NUMBERS_OF_RECTANGLES; indexX++) {
             for (int indexY = 0; indexY < NUMBERS_OF_RECTANGLES; indexY++) {
-                double value = function.getPoints()[indexX][indexY].getZ() - function.getzMin();
+                double value = function.getPoints()[indexX][indexY].getZ() - function.getzMin().getZ();
                 graphic.setColor(intToColor(setFloatInRGBRange(difference, value)));
                 graphic.fillRect(indexX * RECTANGLE_SIZE, DRAW_BOARD_SIZE - ((indexY+1) * RECTANGLE_SIZE), RECTANGLE_SIZE, RECTANGLE_SIZE);
             }
@@ -73,15 +73,18 @@ public class DrawBoard extends JPanel {
 
     private void paintClimbHillAlgorithm(){
         if (this.climbHillAlgorithm != null){
-            List<Point> visited = climbHillAlgorithm.getVisitedPoints();
-            paintVisited(visited);
+            paintVisited(climbHillAlgorithm.getVisitedPoints());
+            paintStartingPoints(climbHillAlgorithm.getStartingPoints());
+            paintMaxima(climbHillAlgorithm.getMaxPoints());
+            paintMaximum(climbHillAlgorithm.getFoundMaximum());
         }
     }
 
     private void paintSimulatedAnnealingAlgorithm(){
         if (this.simulatedAnnealingAlgorithm != null){
-            List<Point> visited = simulatedAnnealingAlgorithm.getVisitedPoints();
-            paintVisited(visited);
+            paintVisited(simulatedAnnealingAlgorithm.getVisitedPoints());
+            paintStartingPoints(simulatedAnnealingAlgorithm.getStartingPoints());
+            paintMaximum(simulatedAnnealingAlgorithm.getFoundMaximum());
         }
     }
 
@@ -98,5 +101,28 @@ public class DrawBoard extends JPanel {
     private void paintVisited(List<Point> points){
         graphic.setColor(COLOR_PROCESSING);
         paintRectangles(points);
+    }
+
+    private void paintStartingPoints(List<Point> points){
+        graphic.setColor(COLOR_STARTING);
+        paintRectangles(points);
+    }
+
+    private void paintMaxima(List<Point> points){
+        graphic.setColor(COLOR_SELECTED);
+        paintRectangles(points);
+    }
+
+    private void paintMaximum(Point point){
+        graphic.setColor(COLOR_MAXIMUM);
+        paintRect(point);
+    }
+
+    public ClimbHillAlgorithm getClimbHillAlgorithm() {
+        return climbHillAlgorithm;
+    }
+
+    public SimulatedAnnealingAlgorithm getSimulatedAnnealingAlgorithm() {
+        return simulatedAnnealingAlgorithm;
     }
 }

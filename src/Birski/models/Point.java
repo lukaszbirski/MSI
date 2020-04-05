@@ -16,6 +16,9 @@ public class Point {
         this.indexY = indexY;
     }
 
+    public Point() {
+    }
+
     public double getZ() {
         return z;
     }
@@ -26,5 +29,13 @@ public class Point {
 
     public int getIndexY() {
         return indexY;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
     }
 }

@@ -15,7 +15,14 @@ public class Configs {
 
     public static final Color COLOR_PROCESSING = Color.YELLOW;
 
-    public static final Color COLOR_PROCESSED = Color.PINK;
+    public static final Color COLOR_STARTING = Color.BLUE;
 
-    public static final Color COLOR_SELECTED = Color.BLUE;
+    public static final Color COLOR_SELECTED = Color.RED;
+
+    public static final Color COLOR_MAXIMUM = Color.GREEN;
+
+    public static final Font PLAIN_FONT = new Font("System", Font.PLAIN, 12);
+
+    public static final Font BOLD_FONT = new Font("System", Font.BOLD, 12);
+
 }
