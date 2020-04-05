@@ -53,6 +53,4 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
         if (next.getZ() > current.getZ()) return 1;
         else return Math.round(Math.exp(current.getZ() - next.getZ()) / temp);
     }
-
-
 }

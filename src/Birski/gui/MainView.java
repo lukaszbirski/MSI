@@ -100,7 +100,6 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         add(annealingButton);
 
         setVisible(true);
-
     }
 
     public static void main(String[] args) {
@@ -109,15 +108,11 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         window.setSize(790, 580);
         window.setLocationRelativeTo(null);
         window.setResizable(false);
-
         window.add(mainView);
         window.setVisible(true);
 
         thread.start();
     }
-
-
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -140,14 +135,13 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         drawBoard.setFunction(new Function());
         drawBoard.setClimbHillAlgorithm(null);
         drawBoard.setSimulatedAnnealingAlgorithm(null);
-        drawBoard.repaint();
         xMax.setText(String.valueOf(drawBoard.getFunction().getxMax()));
         xMin.setText(String.valueOf(drawBoard.getFunction().getxMin()));
         yMax.setText(String.valueOf(drawBoard.getFunction().getyMax()));
         yMin.setText(String.valueOf(drawBoard.getFunction().getyMin()));
         xIsInRange.setText("x is in the range of " + drawBoard.getFunction().getxMin() + ".." + drawBoard.getFunction().getxMax());
         yIsInRange.setText("y is in the range of " + drawBoard.getFunction().getyMin() + ".." + drawBoard.getFunction().getyMax());
-        expectedMaximum.setText("Expected maximum: " + String.format("%.5f", (drawBoard.getFunction().getzMax())));
+        expectedMaximum.setText("Expected maximum: " + String.format("%.8f", (drawBoard.getFunction().getzMax())));
     }
 
     @Override
@@ -162,7 +156,6 @@ public class MainView extends JPanel implements ActionListener, Runnable {
             wait = op - timeCycle/1000000;
             if (wait <=0 )wait = 3;
             try {thread.sleep(wait);} catch (InterruptedException e) {e.printStackTrace();}
-            System.out.println(op + " > " + wait);
         }
 
     }

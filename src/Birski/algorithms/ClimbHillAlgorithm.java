@@ -21,8 +21,6 @@ public class ClimbHillAlgorithm extends Algorithm {
 
         currentPoint = startingPoint;
 
-        System.out.println(" ");
-
         while(true)
         {
             visitedPoints.add(currentPoint);
@@ -33,8 +31,6 @@ public class ClimbHillAlgorithm extends Algorithm {
                 break;
             }
         }
-
-
     }
 
     private Point getTheBestNeighbour(List<Point> neighbours){

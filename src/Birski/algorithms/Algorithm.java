@@ -1,6 +1,5 @@
 package Birski.algorithms;
 
-import Birski.models.Function;
 import Birski.models.Point;
 
 import java.util.ArrayList;
@@ -24,9 +23,7 @@ public abstract class Algorithm {
         this.startingPoint = getRandomPoint();
     }
 
-    public void init() {
-
-    }
+    public void init() {}
 
     public Point getRandomPoint(){
         int indexX, indexY;

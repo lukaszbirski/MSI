@@ -38,8 +38,7 @@ public class DrawBoard extends JPanel {
         for (int indexX = 0; indexX < NUMBERS_OF_RECTANGLES; indexX++) {
             for (int indexY = 0; indexY < NUMBERS_OF_RECTANGLES; indexY++) {
                 double value = function.getPoints()[indexX][indexY].getZ() - function.getzMin();
-                double corrected = setFloatInRGBRange(difference, value);
-                graphic.setColor(intToColor((int) corrected));
+                graphic.setColor(intToColor(setFloatInRGBRange(difference, value)));
                 graphic.fillRect(indexX * RECTANGLE_SIZE, DRAW_BOARD_SIZE - ((indexY+1) * RECTANGLE_SIZE), RECTANGLE_SIZE, RECTANGLE_SIZE);
             }
         }
@@ -75,22 +74,29 @@ public class DrawBoard extends JPanel {
     private void paintClimbHillAlgorithm(){
         if (this.climbHillAlgorithm != null){
             List<Point> visited = climbHillAlgorithm.getVisitedPoints();
-            graphic.setColor(COLOR_PROCESSING);
-            for (Point point : visited){
-            graphic.fillRect(point.getIndexX() * RECTANGLE_SIZE,DRAW_BOARD_SIZE - ((point.getIndexY()+1) * RECTANGLE_SIZE),RECTANGLE_SIZE, RECTANGLE_SIZE);
-            }
+            paintVisited(visited);
         }
     }
 
     private void paintSimulatedAnnealingAlgorithm(){
         if (this.simulatedAnnealingAlgorithm != null){
             List<Point> visited = simulatedAnnealingAlgorithm.getVisitedPoints();
-            graphic.setColor(COLOR_PROCESSING);
-            for (Point point : visited){
-                graphic.fillRect(point.getIndexX() * RECTANGLE_SIZE,DRAW_BOARD_SIZE - ((point.getIndexY()+1) * RECTANGLE_SIZE),RECTANGLE_SIZE, RECTANGLE_SIZE);
-            }
+            paintVisited(visited);
         }
     }
 
+    private void paintRect(Point point){
+        graphic.fillRect(point.getIndexX() * RECTANGLE_SIZE,DRAW_BOARD_SIZE - ((point.getIndexY()+1) * RECTANGLE_SIZE),RECTANGLE_SIZE, RECTANGLE_SIZE);
+    }
 
+    private void paintRectangles(List<Point> points){
+        for (Point point : points){
+            paintRect(point);
+        }
+    }
+
+    private void paintVisited(List<Point> points){
+        graphic.setColor(COLOR_PROCESSING);
+        paintRectangles(points);
+    }
 }
