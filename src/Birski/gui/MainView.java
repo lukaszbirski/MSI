@@ -3,7 +3,6 @@ package Birski.gui;
 import Birski.algorithms.ClimbHillAlgorithm;
 import Birski.algorithms.SimulatedAnnealingAlgorithm;
 import Birski.models.Function;
-import Birski.models.Point;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,17 +11,15 @@ import java.awt.event.ActionListener;
 
 import static Birski.utils.Configs.BOLD_FONT;
 import static Birski.utils.Configs.PLAIN_FONT;
-import static Birski.utils.Strings.SOFTWARE_TITLE;
+import static Birski.utils.Strings.*;
 
 public class MainView extends JPanel implements ActionListener, Runnable {
 
-    private JLabel formula, xIsInRange, yIsInRange, xMax, xMin, x, yMin, yMax, y, expectedMaximum, expectedMaximumValue, climbLabel, annealingLabel, stepsClimbLabel, extremaClimbLabel, extremumClimbLabel, stepsAnnealingLabel, extremaAnnealingLabel, extremumAnnealingLabel;
+    private JLabel formula, xIsInRange, yIsInRange, xMax, xMin, x, yMin, yMax, y, expectedMaximumValue, climbLabel, annealingLabel,
+            stepsClimbLabel, extremaClimbLabel, extremumClimbLabel, stepsAnnealingLabel, extremaAnnealingLabel, extremumAnnealingLabel,
+            functionParameters, arrayAccessedAnnealingLabel, arrayAccessedClimbLabel;
     static DrawBoard drawBoard;
     private JButton generateButton, climbButton, annealingButton;
-
-    private String xValue, yValue, zValue, indexX, indexY;
-
-    //static Font font;
 
     static JFrame window = new JFrame(SOFTWARE_TITLE);
     static MainView mainView = new MainView();
@@ -34,13 +31,21 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         super();
         setBackground(Color.GRAY);
         setLayout(null);
-        setSize(200, 200);
-        //font = new Font("System", Font.PLAIN, 13);
+        //setSize(200, 200);
         drawBoard = new DrawBoard();
-        formula = new JLabel("z = x^" + drawBoard.getFunction().getxPower() + " * sin(y/x) * y^" + drawBoard.getFunction().getyPower() + " * (1 + sin(x/y)) + y^" + drawBoard.getFunction().getyPower() + " * sin(x/y) * x^" + drawBoard.getFunction().getxPower(), JLabel.LEFT);
+
+        functionParameters = new JLabel(FUNCTION_PARAMETERS, JLabel.CENTER);
+        functionParameters.setFont(BOLD_FONT);
+        functionParameters.setForeground(Color.BLACK);
+        functionParameters.setBounds(10, 10, 250, 20);
+        add(functionParameters);
+
+        //todo zrobić metodą zwracającą stringa
+
+        formula = new JLabel(drawBoard.getFunction().getFunctionAsString(), JLabel.LEFT);
         formula.setForeground(Color.BLACK);
         formula.setFont(PLAIN_FONT);
-        formula.setBounds(10, 30, 350, 20);
+        formula.setBounds(10, 30, 330, 20);
         add(formula);
 
         xIsInRange = new JLabel("x is in the range of " + drawBoard.getFunction().getxMin() + ".." + drawBoard.getFunction().getxMax(), JLabel.LEFT);
@@ -55,94 +60,100 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         yIsInRange.setBounds(10, 70, 150, 20);
         add(yIsInRange);
 
-        indexX = String.valueOf(drawBoard.getFunction().getzMax().getIndexX());
-        indexY = String.valueOf(drawBoard.getFunction().getzMax().getIndexY());
-        zValue = String.format("%.6f", (drawBoard.getFunction().getzMax().getZ()));
-        xValue = String.format("%.6f", (drawBoard.getFunction().getzMax().getX()));
-        yValue = String.format("%.6f", (drawBoard.getFunction().getzMax().getY()));
-
-        expectedMaximumValue = new JLabel("Extremum: (x; y; z) = (" + xValue + "; " + yValue + "; " + zValue + ")", JLabel.LEFT);
+        expectedMaximumValue = new JLabel(EXTREMUM + drawBoard.getFunction().getzMax().toString(), JLabel.LEFT);
         expectedMaximumValue.setForeground(Color.BLACK);
         expectedMaximumValue.setFont(PLAIN_FONT);
-        expectedMaximumValue.setBounds(10, 90, 350, 20);
+        expectedMaximumValue.setBounds(10, 90, 330, 20);
         add(expectedMaximumValue);
 
-        climbLabel = new JLabel("Climb Hill Algorithm", JLabel.CENTER);
+        climbLabel = new JLabel(ALGORITHM_CLIMB_LABEL, JLabel.CENTER);
         climbLabel.setForeground(Color.BLACK);
         climbLabel.setFont(BOLD_FONT);
         climbLabel.setBounds(10, 150, 250, 20);
         add(climbLabel);
 
-        extremaClimbLabel = new JLabel("Extrema: ", JLabel.LEFT);
+        extremaClimbLabel = new JLabel(EXTREMA, JLabel.LEFT);
         extremaClimbLabel.setForeground(Color.BLACK);
         extremaClimbLabel.setFont(PLAIN_FONT);
-        extremaClimbLabel.setBounds(10, 170, 250, 20);
+        extremaClimbLabel.setBounds(10, 170, 330, 20);
         add(extremaClimbLabel);
 
-        stepsClimbLabel = new JLabel("Steps: ", JLabel.LEFT);
+        stepsClimbLabel = new JLabel(STEPS, JLabel.LEFT);
         stepsClimbLabel.setForeground(Color.BLACK);
         stepsClimbLabel.setFont(PLAIN_FONT);
-        stepsClimbLabel.setBounds(10, 190, 250, 20);
+        stepsClimbLabel.setBounds(10, 190, 330, 20);
         add(stepsClimbLabel);
 
-        extremumClimbLabel = new JLabel("Extremum: ", JLabel.LEFT);
+        extremumClimbLabel = new JLabel(EXTREMUM, JLabel.LEFT);
         extremumClimbLabel.setForeground(Color.BLACK);
         extremumClimbLabel.setFont(PLAIN_FONT);
-        extremumClimbLabel.setBounds(10, 210, 250, 20);
+        extremumClimbLabel.setBounds(10, 210, 330, 20);
         add(extremumClimbLabel);
 
-        annealingLabel = new JLabel("Annealing Algorithm", JLabel.CENTER);
+        arrayAccessedClimbLabel = new JLabel(ARRAYS_ACCESSED, JLabel.LEFT);
+        arrayAccessedClimbLabel.setForeground(Color.BLACK);
+        arrayAccessedClimbLabel.setFont(PLAIN_FONT);
+        arrayAccessedClimbLabel.setBounds(10, 230, 330, 20);
+        add(arrayAccessedClimbLabel);
+
+        annealingLabel = new JLabel(ALGORITHM_ANNEALING_LABEL, JLabel.CENTER);
         annealingLabel.setForeground(Color.BLACK);
         annealingLabel.setFont(BOLD_FONT);
-        annealingLabel.setBounds(10, 260, 250, 20);
+        annealingLabel.setBounds(10, 280, 250, 20);
         add(annealingLabel);
 
-        extremaAnnealingLabel = new JLabel("Extrema: ", JLabel.LEFT);
+        extremaAnnealingLabel = new JLabel(EXTREMA, JLabel.LEFT);
         extremaAnnealingLabel.setForeground(Color.BLACK);
         extremaAnnealingLabel.setFont(PLAIN_FONT);
-        extremaAnnealingLabel.setBounds(10, 280, 250, 20);
+        extremaAnnealingLabel.setBounds(10, 300, 330, 20);
         add(extremaAnnealingLabel);
 
-        stepsAnnealingLabel = new JLabel("Steps: ", JLabel.LEFT);
+        stepsAnnealingLabel = new JLabel(STEPS, JLabel.LEFT);
         stepsAnnealingLabel.setForeground(Color.BLACK);
         stepsAnnealingLabel.setFont(PLAIN_FONT);
-        stepsAnnealingLabel.setBounds(10, 300, 250, 20);
+        stepsAnnealingLabel.setBounds(10, 320, 330, 20);
         add(stepsAnnealingLabel);
 
-        extremumAnnealingLabel = new JLabel("Extremum: ", JLabel.LEFT);
+        extremumAnnealingLabel = new JLabel(EXTREMUM, JLabel.LEFT);
         extremumAnnealingLabel.setForeground(Color.BLACK);
         extremumAnnealingLabel.setFont(PLAIN_FONT);
-        extremumAnnealingLabel.setBounds(10, 320, 350, 20);
+        extremumAnnealingLabel.setBounds(10, 340, 330, 20);
         add(extremumAnnealingLabel);
+
+        arrayAccessedAnnealingLabel = new JLabel(ARRAYS_ACCESSED, JLabel.LEFT);
+        arrayAccessedAnnealingLabel.setForeground(Color.BLACK);
+        arrayAccessedAnnealingLabel.setFont(PLAIN_FONT);
+        arrayAccessedAnnealingLabel.setBounds(10, 360, 330, 20);
+        add(arrayAccessedAnnealingLabel);
 
         xMax = new JLabel(String.valueOf(drawBoard.getFunction().getxMax()), JLabel.RIGHT);
         xMax.setForeground(Color.BLACK);
-        xMax.setBounds(320, 10, 20, 20);
+        xMax.setBounds(830, 520, 20, 20);
         add(xMax);
 
         xMin = new JLabel(String.valueOf(drawBoard.getFunction().getxMin()), JLabel.RIGHT);
         xMin.setForeground(Color.BLACK);
-        xMin.setBounds(320, 510, 20, 20);
+        xMin.setBounds(340, 520, 20, 20);
         add(xMin);
 
-        x = new JLabel("x", JLabel.RIGHT);
+        x = new JLabel(X, JLabel.RIGHT);
         x.setForeground(Color.BLACK);
-        x.setBounds(320, 250, 20, 20);
+        x.setBounds(600, 520, 20, 20);
         add(x);
 
         yMax = new JLabel(String.valueOf(drawBoard.getFunction().getyMax()), JLabel.RIGHT);
         yMax.setForeground(Color.BLACK);
-        yMax.setBounds(830, 520, 20, 20);
+        yMax.setBounds(320, 10, 20, 20);
         add(yMax);
 
         yMin = new JLabel(String.valueOf(drawBoard.getFunction().getyMin()), JLabel.RIGHT);
         yMin.setForeground(Color.BLACK);
-        yMin.setBounds(340, 520, 20, 20);
+        yMin.setBounds(320, 510, 20, 20);
         add(yMin);
 
-        y = new JLabel("y", JLabel.RIGHT);
+        y = new JLabel(Y, JLabel.RIGHT);
         y.setForeground(Color.BLACK);
-        y.setBounds(600, 520, 20, 20);
+        y.setBounds(320, 250, 20, 20);
         add(y);
 
         drawBoard.setSize(500, 500);
@@ -150,17 +161,17 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         drawBoard.setLocation(350, 20);
         add(drawBoard);
 
-        generateButton = new JButton("GENERATE");
+        generateButton = new JButton(ALGORITHM_GENERATE);
         generateButton.setBounds(10, 405, 180, 30);
         generateButton.addActionListener(this);
         add(generateButton);
 
-        climbButton = new JButton("CLIMB");
+        climbButton = new JButton(ALGORITHM_CLIMB);
         climbButton.setBounds(10, 440, 180, 30);
         climbButton.addActionListener(this);
         add(climbButton);
 
-        annealingButton = new JButton("ANNEALING");
+        annealingButton = new JButton(ALGORITHM_ANNEALING );
         annealingButton.setBounds(10, 475, 180, 30);
         annealingButton.addActionListener(this);
         add(annealingButton);
@@ -185,23 +196,18 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         Object source = e.getSource();
 
         if (source == generateButton){
-            refreshManiViewWhileGenerating();
+            refreshMainViewWhileGenerating();
         }
         else if (source == climbButton){
-            drawBoard.setClimbHillAlgorithm(new ClimbHillAlgorithm(drawBoard.getFunction().getPoints()));
-            drawBoard.setSimulatedAnnealingAlgorithm(null);
-
+            clickClimbButton();
         }
         else if (source == annealingButton){
-            drawBoard.setSimulatedAnnealingAlgorithm(new SimulatedAnnealingAlgorithm(drawBoard.getFunction().getPoints()));
-            drawBoard.setClimbHillAlgorithm(null);
-
-//            Point annealingMaximum = drawBoard.getSimulatedAnnealingAlgorithm().getFoundMaximum();
-//            extremumAnnealingLabel.setText(String.format("%.6f", "Extremum: (x; y; z) = (" + annealingMaximum.getX() + "; " + annealingMaximum.getY() + "; " + annealingMaximum.getZ() + ")"));
+            clickAnnealingButton();
         }
     }
 
-    private void refreshManiViewWhileGenerating(){
+
+    private void refreshMainViewWhileGenerating(){
         drawBoard.setFunction(new Function());
         drawBoard.setClimbHillAlgorithm(null);
         drawBoard.setSimulatedAnnealingAlgorithm(null);
@@ -209,19 +215,37 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         xMin.setText(String.valueOf(drawBoard.getFunction().getxMin()));
         yMax.setText(String.valueOf(drawBoard.getFunction().getyMax()));
         yMin.setText(String.valueOf(drawBoard.getFunction().getyMin()));
-        formula.setText("z = x^" + drawBoard.getFunction().getxPower() + " * sin(y/x) * y^" + drawBoard.getFunction().getyPower() + " * (1 + sin(x/y)) + y^" + drawBoard.getFunction().getyPower() + " * sin(x/y) * x^" + drawBoard.getFunction().getxPower());
+        formula.setText(drawBoard.getFunction().getFunctionAsString());
         xIsInRange.setText("x is in the range of " + drawBoard.getFunction().getxMin() + ".." + drawBoard.getFunction().getxMax());
         yIsInRange.setText("y is in the range of " + drawBoard.getFunction().getyMin() + ".." + drawBoard.getFunction().getyMax());
-        indexX = String.valueOf(drawBoard.getFunction().getzMax().getIndexX());
-        indexY = String.valueOf(drawBoard.getFunction().getzMax().getIndexY());
-        zValue = String.format("%.6f", (drawBoard.getFunction().getzMax().getZ()));
-        xValue = String.format("%.6f", (drawBoard.getFunction().getzMax().getX()));
-        yValue = String.format("%.6f", (drawBoard.getFunction().getzMax().getY()));
-        expectedMaximumValue.setText("Extremum: (x; y; z) = (" + xValue + "; " + yValue + "; " + zValue + ")");
-        extremumAnnealingLabel.setText("Extremum:");
+        expectedMaximumValue.setText(EXTREMUM + drawBoard.getFunction().getzMax().toString());
+        extremaAnnealingLabel.setText(EXTREMA);
+        stepsAnnealingLabel.setText(STEPS);
+        stepsClimbLabel.setText(STEPS);
+        extremaClimbLabel.setText(EXTREMA);
+        extremumClimbLabel.setText(EXTREMUM);
+        extremumAnnealingLabel.setText(EXTREMUM);
+        arrayAccessedClimbLabel.setText(ARRAYS_ACCESSED);
+        arrayAccessedAnnealingLabel.setText(ARRAYS_ACCESSED);
     }
 
-    //todo należy troche poczyścić tu kod, jest za dużo powtórzeń
+    private void clickAnnealingButton(){
+        drawBoard.setSimulatedAnnealingAlgorithm(new SimulatedAnnealingAlgorithm(drawBoard.getFunction().getPoints()));
+        drawBoard.setClimbHillAlgorithm(null);
+        stepsAnnealingLabel.setText(STEPS + drawBoard.getSimulatedAnnealingAlgorithm().getStatus().getStepCount());
+        extremaAnnealingLabel.setText(EXTREMA + drawBoard.getSimulatedAnnealingAlgorithm().getStatus().getExtremumCount());
+        extremumAnnealingLabel.setText(EXTREMUM + drawBoard.getSimulatedAnnealingAlgorithm().getStatus().getExtremum().toString());
+        arrayAccessedAnnealingLabel.setText(ARRAYS_ACCESSED + drawBoard.getSimulatedAnnealingAlgorithm().getStatus().getArraysCount());
+    }
+
+    private void clickClimbButton(){
+        drawBoard.setClimbHillAlgorithm(new ClimbHillAlgorithm(drawBoard.getFunction().getPoints()));
+        drawBoard.setSimulatedAnnealingAlgorithm(null);
+        stepsClimbLabel.setText(STEPS + drawBoard.getClimbHillAlgorithm().getStatus().getStepCount());
+        extremaClimbLabel.setText(EXTREMA + drawBoard.getClimbHillAlgorithm().getStatus().getExtremumCount());
+        extremumClimbLabel.setText(EXTREMUM + drawBoard.getClimbHillAlgorithm().getStatus().getExtremum().toString());
+        arrayAccessedClimbLabel.setText(ARRAYS_ACCESSED + drawBoard.getClimbHillAlgorithm().getStatus().getArraysCount());
+    }
 
     @Override
     public void run() {

@@ -1,5 +1,7 @@
 package Birski.models;
 
+import static Birski.utils.Configs.stringFormatter;
+
 public class Point {
 
     private double x;
@@ -14,9 +16,6 @@ public class Point {
         this.z = z;
         this.indexX = indexX;
         this.indexY = indexY;
-    }
-
-    public Point() {
     }
 
     public double getZ() {
@@ -37,5 +36,10 @@ public class Point {
 
     public double getY() {
         return y;
+    }
+
+    @Override
+    public String toString() {
+        return "(x; y; z) = (" + stringFormatter(x) + "; " + stringFormatter(y) + "; " + stringFormatter(z) + ")";
     }
 }

@@ -8,7 +8,6 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
 
     private double INITIAL_TEMP = 10;
     private double TEMP_DECREASE = 0.05;
-    private Point currentPoint;
     private Point maximumPoint;
 
     public SimulatedAnnealingAlgorithm(Point[][] points) {
@@ -22,6 +21,7 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
         currentPoint = startingPoints.get(0);
         maximumPoint = currentPoint;
         visitedPoints.add(currentPoint);
+        status.increaseStepCount();
 
         for (double temp = INITIAL_TEMP; temp > 0; temp-= TEMP_DECREASE) {
             Point nextPoint = getRandomNeighbour();
@@ -37,9 +37,10 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
                 }
             }
             visitedPoints.add(currentPoint);
+            status.increaseStepCount();
         }
-        status.setExtremum(maximumPoint);
-        maxPoints.add(maximumPoint);
+        maxPoints.add(currentPoint);
+        setStatusValues();
     }
 
     private Point getRandomNeighbour() {
@@ -56,4 +57,5 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
         if (next.getZ() > current.getZ()) return 1;
         else return Math.round(Math.exp(current.getZ() - next.getZ()) / temp);
     }
+
 }

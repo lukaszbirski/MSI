@@ -21,19 +21,21 @@ public class ClimbHillAlgorithm extends Algorithm {
 
             startingPoints.add(getRandomPoint());
             currentPoint = startingPoints.get(i);
+            status.increaseStepCount();
 
             while(true)
             {
                 visitedPoints.add(currentPoint);
-
                 neighbours = getNeighbours(currentPoint);
-
+                status.increaseStepCount();
                 if (currentPoint == getTheBestNeighbour(neighbours)){
                     maxPoints.add(extremum);
                     break;
                 }
             }
         }
+
+        setStatusValues();
     }
 
     private Point getTheBestNeighbour(List<Point> neighbours){

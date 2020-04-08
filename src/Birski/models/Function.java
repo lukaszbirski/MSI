@@ -106,4 +106,9 @@ public class Function {
     public Point getzMax() {
         return zMax;
     }
+
+    public String getFunctionAsString(){
+        return "z = x^" + xPower + " * sin(y/x) * y^" + yPower + " * (1 + sin(x/y)) + y^" + yPower + " * sin(x/y) * x^" + xPower;
+    }
+
 }

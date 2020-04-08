@@ -76,7 +76,7 @@ public class DrawBoard extends JPanel {
             paintVisited(climbHillAlgorithm.getVisitedPoints());
             paintStartingPoints(climbHillAlgorithm.getStartingPoints());
             paintMaxima(climbHillAlgorithm.getMaxPoints());
-            paintMaximum(climbHillAlgorithm.getFoundMaximum());
+            paintMaximum(climbHillAlgorithm.getFoundMaximum(climbHillAlgorithm.getMaxPoints()));
         }
     }
 
@@ -84,7 +84,7 @@ public class DrawBoard extends JPanel {
         if (this.simulatedAnnealingAlgorithm != null){
             paintVisited(simulatedAnnealingAlgorithm.getVisitedPoints());
             paintStartingPoints(simulatedAnnealingAlgorithm.getStartingPoints());
-            paintMaximum(simulatedAnnealingAlgorithm.getFoundMaximum());
+            paintMaximum(simulatedAnnealingAlgorithm.getFoundMaximum(simulatedAnnealingAlgorithm.getMaxPoints()));
         }
     }
 

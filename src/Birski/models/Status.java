@@ -4,12 +4,9 @@ public class Status {
     private int stepCount;
     private int extremumCount;
     private Point extremum;
+    private  int arraysCount;
 
     public Status() {
-    }
-
-    public void increaseExtremumCount(){
-        extremumCount++;
     }
 
     public void increaseStepCount() {
@@ -18,10 +15,6 @@ public class Status {
 
     public int getStepCount() {
         return stepCount;
-    }
-
-    public void setStepCount(int stepCount) {
-        this.stepCount = stepCount;
     }
 
     public int getExtremumCount() {
@@ -38,5 +31,13 @@ public class Status {
 
     public void setExtremum(Point extremum) {
         this.extremum = extremum;
+    }
+
+    public int getArraysCount() {
+        return arraysCount;
+    }
+
+    public void setArraysCount(int arraysCount) {
+        this.arraysCount = arraysCount;
     }
 }

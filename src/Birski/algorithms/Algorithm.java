@@ -3,9 +3,7 @@ package Birski.algorithms;
 import Birski.models.Point;
 import Birski.models.Status;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 import static Birski.utils.Configs.NUMBERS_OF_RECTANGLES;
 
@@ -70,13 +68,35 @@ public abstract class Algorithm {
         return maxPoints;
     }
 
-    public Point getFoundMaximum() {
-        Point max = maxPoints.get(0);
+    public Status getStatus() {
+        return status;
+    }
 
+    public Point getFoundMaximum(List<Point> points) {
+        Point max = maxPoints.get(0);
         for (Point point : maxPoints){
             if (point.getZ() > max.getZ()) max = point;
         }
-
         return max;
+    }
+
+    public int maxPointsCounter(List<Point> points){
+        Set<Point> pointSet = new HashSet<>();
+        for (Point point : points){
+            pointSet.add(point);
+        }
+        return pointSet.size();
+    }
+
+    protected void setStatusValues(){
+        status.setExtremum(getFoundMaximum(maxPoints));
+        status.setExtremumCount(maxPointsCounter(maxPoints));
+        status.setArraysCount(visitedPoints.size());
+        int i=0;
+        for (Point point : visitedPoints){
+            i++;
+            System.out.println(i + ". " + point.toString());
+        }
+
     }
 }
