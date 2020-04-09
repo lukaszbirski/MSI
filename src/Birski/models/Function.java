@@ -71,14 +71,6 @@ public class Function {
         return values;
     }
 
-    public int getxPower() {
-        return xPower;
-    }
-
-    public int getyPower() {
-        return yPower;
-    }
-
     public int getxMin() {
         return xMin;
     }
@@ -110,5 +102,4 @@ public class Function {
     public String getFunctionAsString(){
         return "z = x^" + xPower + " * sin(y/x) * y^" + yPower + " * (1 + sin(x/y)) + y^" + yPower + " * sin(x/y) * x^" + xPower;
     }
-
 }

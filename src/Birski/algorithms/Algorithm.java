@@ -80,23 +80,17 @@ public abstract class Algorithm {
         return max;
     }
 
-    public int maxPointsCounter(List<Point> points){
+    public Set<Point> listToSet(List<Point> points){
         Set<Point> pointSet = new HashSet<>();
         for (Point point : points){
             pointSet.add(point);
         }
-        return pointSet.size();
+        return pointSet;
     }
 
     protected void setStatusValues(){
         status.setExtremum(getFoundMaximum(maxPoints));
-        status.setExtremumCount(maxPointsCounter(maxPoints));
-        status.setArraysCount(visitedPoints.size());
-        int i=0;
-        for (Point point : visitedPoints){
-            i++;
-            System.out.println(i + ". " + point.toString());
-        }
-
+        status.setExtremumCount(listToSet(maxPoints).size());
+        status.setArraysCount(listToSet(visitedPoints).size());
     }
 }

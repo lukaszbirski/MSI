@@ -31,7 +31,6 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         super();
         setBackground(Color.GRAY);
         setLayout(null);
-        //setSize(200, 200);
         drawBoard = new DrawBoard();
 
         functionParameters = new JLabel(FUNCTION_PARAMETERS, JLabel.CENTER);
@@ -40,21 +39,19 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         functionParameters.setBounds(10, 10, 250, 20);
         add(functionParameters);
 
-        //todo zrobić metodą zwracającą stringa
-
         formula = new JLabel(drawBoard.getFunction().getFunctionAsString(), JLabel.LEFT);
         formula.setForeground(Color.BLACK);
         formula.setFont(PLAIN_FONT);
         formula.setBounds(10, 30, 330, 20);
         add(formula);
 
-        xIsInRange = new JLabel("x is in the range of " + drawBoard.getFunction().getxMin() + ".." + drawBoard.getFunction().getxMax(), JLabel.LEFT);
+        xIsInRange = new JLabel(X_IN_THE_RANGE_STRING + drawBoard.getFunction().getxMin() + DOTS + drawBoard.getFunction().getxMax(), JLabel.LEFT);
         xIsInRange.setForeground(Color.BLACK);
         xIsInRange.setFont(PLAIN_FONT);
         xIsInRange.setBounds(10, 50, 150, 20);
         add(xIsInRange);
 
-        yIsInRange = new JLabel("y is in the range of " + drawBoard.getFunction().getyMin() + ".." + drawBoard.getFunction().getyMax(), JLabel.LEFT);
+        yIsInRange = new JLabel(Y_IN_THE_RANGE_STRING + drawBoard.getFunction().getyMin() + DOTS + drawBoard.getFunction().getyMax(), JLabel.LEFT);
         yIsInRange.setForeground(Color.BLACK);
         yIsInRange.setFont(PLAIN_FONT);
         yIsInRange.setBounds(10, 70, 150, 20);
@@ -216,8 +213,8 @@ public class MainView extends JPanel implements ActionListener, Runnable {
         yMax.setText(String.valueOf(drawBoard.getFunction().getyMax()));
         yMin.setText(String.valueOf(drawBoard.getFunction().getyMin()));
         formula.setText(drawBoard.getFunction().getFunctionAsString());
-        xIsInRange.setText("x is in the range of " + drawBoard.getFunction().getxMin() + ".." + drawBoard.getFunction().getxMax());
-        yIsInRange.setText("y is in the range of " + drawBoard.getFunction().getyMin() + ".." + drawBoard.getFunction().getyMax());
+        xIsInRange.setText(X_IN_THE_RANGE_STRING + drawBoard.getFunction().getxMin() + DOTS + drawBoard.getFunction().getxMax());
+        yIsInRange.setText(Y_IN_THE_RANGE_STRING + drawBoard.getFunction().getyMin() + DOTS + drawBoard.getFunction().getyMax());
         expectedMaximumValue.setText(EXTREMUM + drawBoard.getFunction().getzMax().toString());
         extremaAnnealingLabel.setText(EXTREMA);
         stepsAnnealingLabel.setText(STEPS);

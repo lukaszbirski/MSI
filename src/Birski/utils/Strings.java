@@ -28,9 +28,11 @@ public class Strings {
 
     public final static String Y = "Y";
 
-
-
-    public static final  String FORMULA_STRING = "f(x,y) = x^ * y^";
     public static final String X_IN_THE_RANGE_STRING = "x is in the range: ";
+
     public static final String Y_IN_THE_RANGE_STRING = "y is in the range: ";
+
+    public static final String DOTS = "..";
+
+
 }
