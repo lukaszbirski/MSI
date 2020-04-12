@@ -38,6 +38,7 @@ public class ClimbHillAlgorithm extends Algorithm {
         setStatusValues();
     }
 
+    /**Metoda wybiera najlepszy punkt z zadanych */
     private Point getTheBestNeighbour(List<Point> neighbours){
         for (Point point : neighbours){
             if (point.getZ() > currentPoint.getZ()){

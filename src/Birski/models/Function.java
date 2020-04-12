@@ -35,10 +35,12 @@ public class Function {
         zMax = getZMaxAndMin(points)[0];
     }
 
+    /**Metoda liczy wartość Z każdego punktu*/
     public double calculateZ(double x, double y, double xPower, double yPower){
         return pow(x, xPower) * sin(y/x) * pow(y, yPower) + (1 + sin(x/y)) + pow(y, yPower) * sin(x/y) * pow(x, xPower) * (sin(y/x));
     }
 
+    /**Metoda wzraca tablicę punktów z wyliczonymi wartościami x,y,z,indexX i indexY każdego punktu*/
     private Point[][] calculatePoints(){
         Point [][] points = new Point[NUMBERS_OF_RECTANGLES][NUMBERS_OF_RECTANGLES];
 
@@ -59,6 +61,7 @@ public class Function {
         return points;
     }
 
+    /**Metoda zwraca maksymalną i minimalną wartość Z dla danej funkcji*/
     private Point[] getZMaxAndMin(Point[][] points){
         Point[] values = new Point[2];
         values[0] = values[1] = points[0][0];
@@ -99,6 +102,7 @@ public class Function {
         return zMax;
     }
 
+    /**Metoda zwraca funkcję w postaci tekstu*/
     public String getFunctionAsString(){
         return "z = x^" + xPower + " * sin(y/x) * y^" + yPower + " * (1 + sin(x/y)) + y^" + yPower + " * sin(x/y) * x^" + xPower;
     }

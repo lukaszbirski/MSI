@@ -21,10 +21,15 @@ public class Configs {
 
     public static final Color COLOR_MAXIMUM = Color.GREEN;
 
+    public static final Color COLOR_BG = Color.GRAY;
+
+    public static final Color COLOR_FONTS = Color.BLACK;
+
     public static final Font PLAIN_FONT = new Font("System", Font.PLAIN, 12);
 
     public static final Font BOLD_FONT = new Font("System", Font.BOLD, 12);
 
+    /**Metoda formatuje odpowiednio wartość liczby zmiennoprzecinkowej*/
     public static String stringFormatter(double value){
         return String.format("%.6f", value);
     }

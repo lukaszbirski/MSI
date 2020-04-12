@@ -43,16 +43,19 @@ public class SimulatedAnnealingAlgorithm extends Algorithm {
         setStatusValues();
     }
 
+    /**Metoda zwraca losowo wybrany punkt sąsiedni*/
     private Point getRandomNeighbour() {
         List<Point> neighbours = getNeighbours(currentPoint);
         return neighbours.get(random.nextInt(neighbours.size()));
     }
 
+    /**Metoda ustawia punkt jako aktualny*/
     private void setCurrentPoint(Point next){
         currentPoint = next;
         if (maximumPoint.getZ() < currentPoint.getZ()) maximumPoint = currentPoint;
     }
 
+    /**Metoda liczy prawdopodobieństwo wg wzoru exp(deltaE/T)*/
     private long probability(Point current, Point next, double temp) {
         if (next.getZ() > current.getZ()) return 1;
         else return Math.round(Math.exp(current.getZ() - next.getZ()) / temp);

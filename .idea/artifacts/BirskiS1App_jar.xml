@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BirskiS1App:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BirskiS1App_jar</output-path>
+    <root id="archive" name="BirskiS1App.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../projekt/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="BirskiS1App" />
+    </root>
+  </artifact>
+</component>
